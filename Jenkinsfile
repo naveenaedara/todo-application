@@ -45,13 +45,5 @@ pipeline{
             }
         }
     } 
-    post{
-        successful{
-            sh  "echo Deployment is successful"
-        }
-        failure{
-            sh "echo Deployment is failed"
-        }
-    }
-    }
+}    
 
