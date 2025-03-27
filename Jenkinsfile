@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools{
+        maven 'Maven 3.8.5'
+    }
     environment{
         DOCKERHUB_CREDENTIALS="docker-hub-credentials"
         DOCKERHUB_USERNAME="naveenaedara1"
