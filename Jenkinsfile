@@ -7,7 +7,7 @@ pipeline{
         DOCKERHUB_CREDENTIALS="docker-hub-credentials"
         DOCKERHUB_USERNAME="naveenaedara1"
         IMAGE_NAME="todo-application-image"
-        IMAGE_TAG="LATEST"  
+        IMAGE_TAG="latest"  
     }
     stages{
         stage('checkout the code'){
@@ -31,7 +31,7 @@ pipeline{
         stage('push the image to dockerhub'){
           steps{
             script{
-                sh "echo $DOCKERHUB_CREDENTIALS | docker login -u $OCKERHUB_USERNAME --password-stdin"
+                sh "echo $DOCKERHUB_CREDENTIALS | docker login -u $DOCKERHUB_USERNAME --password-stdin"
                 sh "docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:IMAGE_TAG"
             }
           }
@@ -42,11 +42,11 @@ pipeline{
                     sh '''
                     docker compose down
                     docker compose pull
-                    docker compose up
+                    docker compose up -d
                     '''
                 }
             }
         }
-    } 
+    }   
 }    
 
