@@ -41,7 +41,8 @@ pipeline{
                 script{
                     sh '''
                     docker compose --version
-                    docker compose up -d
+                    docker compose up 
+                    docker compose ps
                     '''
                 }
             }
