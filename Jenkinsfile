@@ -4,7 +4,7 @@ pipeline{
         maven 'Maven 3.8.5'
     }
     environment{
-        DOCKERHUB_CREDENTIALS="docker-hub-credentials"
+        DOCKERHUB_CREDENTIALS=credentials('docker-hub-credentials')
         DOCKERHUB_USERNAME="naveenaedara1"
         IMAGE_NAME="todo-application-image"
         IMAGE_TAG="latest"  
@@ -31,7 +31,7 @@ pipeline{
         stage('push the image to dockerhub'){
           steps{
             script{
-                sh "echo $DOCKERHUB_CREDENTIALS | docker login -u $DOCKERHUB_USERNAME --password-stdin"
+                sh "echo ${DOCKERHUB_CREDENTIALS_PSW} | docker login -u ${DOCKERHUB_CREDENTIALS_USR} --password-stdin"
                 sh "docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:IMAGE_TAG"
             }
           }
