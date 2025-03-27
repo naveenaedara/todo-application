@@ -26,7 +26,7 @@ services:
       networks:
        - todo-network
 volumes:
- - mysql-data:
+  mysql-data:
 networks:
   todo-network:
     driver: bridge           
