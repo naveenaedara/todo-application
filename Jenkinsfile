@@ -40,8 +40,7 @@ pipeline{
             steps{
                 script{
                     sh '''
-                    docker compose down
-                    docker compose pull
+                    docker compose --version
                     docker compose up -d
                     '''
                 }
