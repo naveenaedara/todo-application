@@ -3,7 +3,7 @@ version: '3.8'
 services:
    todo-application:
       image: todo-application-image:latest
-      container-name: todo-app 
+      #container-name: todo-app 
       environment:
         DB_HOST: mysql-db
         DB_USERNAME: root
@@ -15,7 +15,7 @@ services:
        - todo-network
    mysql-db:
       image: mysql:8.0
-      container-name: tododb
+      #container-name: tododb
       environment:
         MYSQL_ROOT_PASSWORD: Root@123
         MYSQL_DATABASE_NAME: tododb
