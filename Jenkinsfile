@@ -40,7 +40,7 @@ pipeline{
             steps{
                 script{
                     sh '''
-                    docker compose --version
+                    docker compose version
                     docker compose up 
                     docker compose ps
                     '''
