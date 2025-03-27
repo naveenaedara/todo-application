@@ -2,7 +2,7 @@
 version: '3.8'
 services:
    todo-application:
-      image: todo-application-image:latest
+      image: naveenaedara1/todo-application-image:latest
       #container-name: todo-app 
       environment:
         DB_HOST: mysql-db
