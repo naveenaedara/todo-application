@@ -9,6 +9,7 @@ services:
         DB_USERNAME: root
         DB_PASSWORD: Root@123
         DB_NAME: tododb
+        DB_PORT: 3306
       depends_on:
         - mysql-db
       ports:
