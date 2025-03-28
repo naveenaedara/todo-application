@@ -11,7 +11,8 @@ services:
         #DB_NAME: tododb
         #DB_PORT: 3306
       depends_on:
-        - mysql-db
+         mysql-db:
+            condition: service_healthy   
       ports:
        - "8082:8081"
       networks:
@@ -24,6 +25,11 @@ services:
         MYSQL_DATABASE_NAME: tododb
       ports:
        - "3307:3306"
+       healthcheck:
+         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+         intervals: 10s
+         retries: 5
+         start_period: 10s
       volumes:
        - mysql-data:/var/lib/mysql
       networks:
