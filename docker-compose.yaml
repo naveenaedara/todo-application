@@ -27,10 +27,7 @@ services:
       ports:
        - "3307:3306"
       healthcheck:
-         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-         intervals: 10s
-         retries: 5
-         start_period: 10s
+         test: ["CMD-SHELL", "mysqladmin ping -h localhost || EXIT 1"]
       volumes:
        - mysql-data:/var/lib/mysql
       networks:
