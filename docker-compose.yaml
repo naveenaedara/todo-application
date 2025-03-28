@@ -5,11 +5,11 @@ services:
       image: naveenaedara1/todo-application-image:latest
       #container-name: todo-app 
       environment:
-        DB_HOST: mysql-db
-        DB_USERNAME: root
-        DB_PASSWORD: Root@123
-        DB_NAME: tododb
-        DB_PORT: 3306
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/tododb
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: Root@123
+        #DB_NAME: tododb
+        #DB_PORT: 3306
       depends_on:
         - mysql-db
       ports:
