@@ -42,6 +42,7 @@ pipeline{
                     sh "echo ${DOCKERHUB_CREDENTIALS_PSW} | docker login -u ${DOCKERHUB_CREDENTIALS_USR} --password-stdin"
                     sh '''
                     docker compose version
+                    docker compose down -v
                     docker compose up -d
                     docker compose ps
                     '''
